@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0717">
+<title>NEON CLUB</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+:root{--bg:#0b0717;--panel:#171027;--panel2:#211438;--pink:#ff3bd4;--cyan:#42e8ff;--purple:#9b5cff;--text:#f8f4ff;--muted:#a79abf;--green:#66ffc2}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#241047 0,#0b0717 55%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;min-height:100vh}
+button{font:inherit;cursor:pointer;border:0;color:inherit}.app{max-width:540px;margin:auto;padding:18px 15px 100px}.top{display:flex;align-items:center;justify-content:space-between;margin:4px 0 18px}.brand{font-weight:950;letter-spacing:2px;font-size:21px}.brand span{color:var(--cyan);text-shadow:0 0 15px #42e8ff66}.avatar{width:42px;height:42px;border-radius:15px;background:linear-gradient(135deg,var(--pink),var(--purple));display:grid;place-items:center;font-weight:900;box-shadow:0 0 20px #ff3bd455}
+.hero{padding:20px;border:1px solid #9b5cff66;border-radius:24px;background:linear-gradient(135deg,#271344dd,#111025ee);box-shadow:0 0 28px #9b5cff18;position:relative;overflow:hidden}.eyebrow{font-size:11px;letter-spacing:2px;color:var(--cyan);font-weight:800}.balance{font-size:38px;font-weight:950;margin:8px 0 3px;letter-spacing:-1px}.coins{color:var(--muted);font-size:13px}.hero-actions{display:flex;gap:10px;margin-top:18px}.btn{border-radius:13px;padding:12px 15px;font-weight:800;background:#ffffff12;border:1px solid #ffffff1b}.btn.primary{background:linear-gradient(100deg,var(--purple),var(--pink));box-shadow:0 5px 20px #ff3bd433}.section-title{display:flex;justify-content:space-between;align-items:center;margin:24px 2px 12px;font-size:17px;font-weight:850}.sub{font-size:12px;color:var(--muted);font-weight:500}.games{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.game{min-height:126px;border-radius:19px;padding:13px 8px;background:linear-gradient(145deg,#211438,#130e20);border:1px solid #ffffff12;text-align:center;transition:.15s}.game:active{transform:scale(.97)}.game .emoji{font-size:33px;display:block;margin:6px 0 10px;filter:drop-shadow(0 0 9px #ff3bd455)}.game b{font-size:13px}.game small{display:block;color:var(--muted);font-size:10px;margin-top:5px}.panel{background:#171027;border:1px solid #ffffff12;border-radius:20px;padding:16px}.daily-row,.leader,.profile-row{display:flex;align-items:center;gap:12px}.daily-icon{width:44px;height:44px;display:grid;place-items:center;background:#42e8ff15;border-radius:14px;font-size:23px}.grow{flex:1}.muted{color:var(--muted);font-size:12px}.claim{background:linear-gradient(100deg,#42e8ff,#9b5cff);color:#090715;padding:10px 13px;border-radius:12px;font-weight:900}.claim:disabled{opacity:.45;filter:grayscale(1)}.page{display:none}.page.active{display:block}.game-head{display:flex;align-items:center;gap:12px;margin:8px 0 20px}.back{width:40px;height:40px;border-radius:13px;background:#ffffff12}.game-title{font-size:23px;font-weight:900}.game-stage{padding:22px 14px;border-radius:22px;text-align:center;background:linear-gradient(145deg,#24113f,#120d20);border:1px solid #9b5cff55}.slot-reels{display:flex;justify-content:center;gap:9px;margin:18px 0}.reel{width:75px;height:83px;border-radius:16px;background:#080612;border:1px solid #42e8ff66;display:grid;place-items:center;font-size:42px;box-shadow:inset 0 0 20px #42e8ff0c}.big-result{font-size:38px;margin:12px}.betrow{display:flex;align-items:center;justify-content:center;gap:10px;margin:15px}.betrow button{background:#ffffff12;border:1px solid #ffffff20;border-radius:10px;padding:8px 13px}.bet{min-width:90px;font-weight:900}.play{width:100%;padding:15px;border-radius:14px;background:linear-gradient(100deg,var(--purple),var(--pink));font-weight:950;letter-spacing:.5px;margin-top:10px}.play:disabled{opacity:.4}.roulette-wheel{width:150px;height:150px;border-radius:50%;margin:16px auto;background:conic-gradient(#ff3bd4 0 30deg,#161025 30deg 60deg,#42e8ff 60deg 90deg,#161025 90deg 120deg,#ff3bd4 120deg 150deg,#161025 150deg 180deg,#42e8ff 180deg 210deg,#161025 210deg 240deg,#ff3bd4 240deg 270deg,#161025 270deg 300deg,#42e8ff 300deg 330deg,#161025 330deg);border:7px solid #cba7ff;display:grid;place-items:center;box-shadow:0 0 25px #9b5cff55;transition:transform 1s}.wheel-center{width:52px;height:52px;border-radius:50%;background:#0b0717;border:2px solid white;display:grid;place-items:center;font-size:24px}.choices{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0}.choice{padding:10px 15px;border-radius:11px;background:#ffffff10;border:1px solid #ffffff22}.choice.selected{border-color:var(--cyan);background:#42e8ff20}.dice{display:flex;gap:20px;justify-content:center;font-size:64px;margin:20px}.tabs{position:fixed;bottom:0;left:0;right:0;background:#100b1df2;backdrop-filter:blur(18px);border-top:1px solid #ffffff14;display:flex;justify-content:center;padding:10px max(12px,env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom));z-index:5}.tabs-inner{width:100%;max-width:520px;display:flex;justify-content:space-around}.tab{background:none;color:var(--muted);font-size:11px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:3px 12px}.tab .ti{font-size:20px}.tab.active{color:var(--cyan)}.leader{padding:12px 0;border-bottom:1px solid #ffffff0e}.rank{width:30px;font-weight:900;color:var(--cyan)}.leader:last-child{border:0}.avatar-sm{width:38px;height:38px;border-radius:13px;background:#352052;display:grid;place-items:center}.score{margin-left:auto;font-weight:900;color:var(--green)}.profile-avatar{width:70px;height:70px;border-radius:24px;background:linear-gradient(135deg,var(--cyan),var(--purple));display:grid;place-items:center;font-size:27px;font-weight:900;box-shadow:0 0 22px #42e8ff30}.notice{font-size:11px;color:var(--muted);line-height:1.5;margin-top:14px;text-align:center}.toast{position:fixed;top:18px;left:50%;transform:translateX(-50%);background:#25163d;border:1px solid #42e8ff77;padding:12px 18px;border-radius:14px;z-index:20;box-shadow:0 0 20px #42e8ff22;display:none;max-width:90%;text-align:center}.empty{text-align:center;padding:30px 10px;color:var(--muted)}input{background:#0d0918;color:white;border:1px solid #ffffff20;border-radius:12px;padding:12px;width:100%;font:inherit;margin:10px 0}
+@media(max-width:360px){.games{gap:6px}.game{padding:10px 4px}.balance{font-size:32px}.reel{width:65px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top"><div class="brand">NEON <span>CLUB</span><div class="sub">PLAY FOR FUN · VIRTUAL COINS</div></div><div class="avatar" id="topAvatar">N</div></div>
+  <section id="homePage" class="page active">
+    <div class="hero"><div class="eyebrow">YOUR VIRTUAL BALANCE</div><div class="balance" id="balance">1,000</div><div class="coins">✦ NEON coins · без реальных денег</div><div class="hero-actions"><button class="btn primary" onclick="showPage('gamesPage')">Играть →</button><button class="btn" onclick="showPage('profilePage')">Мой профиль</button></div></div>
+    <div class="section-title">Выбери игру <span class="sub">3 мини-игры</span></div>
+    <div class="games">
+      <button class="game" onclick="openGame('slots')"><span class="emoji">🎰</span><b>Слоты</b><small>3 барабана</small></button>
+      <button class="game" onclick="openGame('roulette')"><span class="emoji">🎡</span><b>Рулетка</b><small>Выбери цвет</small></button>
+      <button class="game" onclick="openGame('dice')"><span class="emoji">🎲</span><b>Кости</b><small>Угадай число</small></button>
+    </div>
+    <div class="section-title">Ежедневный бонус <span class="sub">раз в день</span></div>
+    <div class="panel daily-row"><div class="daily-icon">🎁</div><div class="grow"><b>Бонус дня</b><div class="muted" id="dailyText">Забери 100 монет</div></div><button id="claimBtn" class="claim" onclick="claimDaily()">+100</button></div>
+    <div class="section-title">Лидеры <button class="sub btn" onclick="showPage('leaderboardPage')">Все →</button></div>
+    <div class="panel" id="topLeaders"></div>
+    <p class="notice">NEON CLUB — развлекательная демоверсия. Монеты виртуальные, не продаются, не переводятся и не имеют денежной стоимости.</p>
+  </section>
+  <section id="gamesPage" class="page">
+    <div class="section-title">Все игры</div><div class="games">
+      <button class="game" onclick="openGame('slots')"><span class="emoji">🎰</span><b>Слоты</b><small>Собери комбинацию</small></button>
+      <button class="game" onclick="openGame('roulette')"><span class="emoji">🎡</span><b>Рулетка</b><small>Угадай цвет</small></button>
+      <button class="game" onclick="openGame('dice')"><span class="emoji">🎲</span><b>Кости</b><small>Угадай число</small></button>
+    </div><p class="notice">В каждой игре используется только виртуальный баланс. Играй ответственно и ради развлечения.</p>
+  </section>
+  <section id="slotsPage" class="page">
+    <div class="game-head"><button class="back" onclick="showPage('gamesPage')">←</button><div><div class="game-title">🎰 Слоты</div><div class="muted">Три барабана · случайный результат</div></div></div>
+    <div class="game-stage"><div class="eyebrow">NEON SPIN</div><div class="slot-reels"><div class="reel" id="r1">🍒</div><div class="reel" id="r2">💎</div><div class="reel" id="r3">⭐</div></div><div id="slotResult" class="muted">Три одинаковых символа — крупный бонус!</div><div class="betrow"><button onclick="changeBet(-10)">−10</button><div class="bet"><span id="slotBet">50</span> монет</div><button onclick="changeBet(10)">+10</button></div><button class="play" onclick="playSlots()">КРУТИТЬ · 50</button></div>
+  </section>
+  <section id="roulettePage" class="page">
+    <div class="game-head"><button class="back" onclick="showPage('gamesPage')">←</button><div><div class="game-title">🎡 Рулетка</div><div class="muted">Выбери цвет и крути</div></div></div>
+    <div class="game-stage"><div class="roulette-wheel" id="wheel"><div class="wheel-center">✦</div></div><div class="choices"><button class="choice selected" data-color="pink" onclick="selectColor('pink')">💗 Розовый</button><button class="choice" data-color="cyan" onclick="selectColor('cyan')">🩵 Голубой</button><button class="choice" data-color="dark" onclick="selectColor('dark')">🖤 Тёмный</button></div><div class="betrow"><button onclick="changeRouletteBet(-10)">−10</button><div class="bet"><span id="rouletteBet">50</span> монет</div><button onclick="changeRouletteBet(10)">+10</button></div><div class="muted" id="rouletteResult">Угадай цвет сектора</div><button class="play" onclick="playRoulette()">КРУТИТЬ · 50</button></div>
+  </section>
+  <section id="dicePage" class="page">
+    <div class="game-head"><button class="back" onclick="showPage('gamesPage')">←</button><div><div class="game-title">🎲 Кости</div><div class="muted">Угадай результат броска</div></div></div>
+    <div class="game-stage"><div class="dice"><span id="die1">⚀</span><span id="die2">⚄</span></div><div class="muted">Выбери сумму двух костей</div><div class="choices" id="diceChoices"></div><div class="betrow"><button onclick="changeDiceBet(-10)">−10</button><div class="bet"><span id="diceBet">50</span> монет</div><button onclick="changeDiceBet(10)">+10</button></div><div class="muted" id="diceResult">Точный прогноз приносит 5× ставку</div><button class="play" onclick="playDice()">БРОСИТЬ · 50</button></div>
+  </section>
+  <section id="leaderboardPage" class="page"><div class="section-title">🏆 Таблица лидеров</div><div class="panel" id="allLeaders"></div><p class="notice">В этой версии таблица демонстрационная и хранится на устройстве. Для общей таблицы всех пользователей нужен сервер.</p></section>
+  <section id="profilePage" class="page">
+    <div class="section-title">Мой профиль</div><div class="panel" style="text-align:center;padding:24px"><div class="profile-avatar" style="margin:auto" id="profileAvatar">N</div><h2 id="profileName">Neon Player</h2><div class="muted" id="profileHandle">@player</div><input id="nameInput" maxlength="24" placeholder="Твоё игровое имя"><button class="play" onclick="saveName()">СОХРАНИТЬ ИМЯ</button></div>
+    <div class="section-title">Статистика</div><div class="panel"><div class="profile-row"><span class="grow muted">Всего игр</span><b id="statGames">0</b></div><div class="profile-row" style="margin-top:15px"><span class="grow muted">Выиграно монет</span><b id="statWon">0</b></div><div class="profile-row" style="margin-top:15px"><span class="grow muted">Ежедневных бонусов</span><b id="statBonuses">0</b></div></div>
+    <button class="btn" style="width:100%;margin-top:14px" onclick="resetProgress()">Сбросить прогресс</button><p class="notice">Сброс удаляет сохранённый на этом устройстве прогресс.</p>
+  </section>
+</div>
+<nav class="tabs"><div class="tabs-inner"><button class="tab active" data-page="homePage" onclick="showPage('homePage')"><span class="ti">⌂</span>Главная</button><button class="tab" data-page="gamesPage" onclick="showPage('gamesPage')"><span class="ti">✦</span>Игры</button><button class="tab" data-page="leaderboardPage" onclick="showPage('leaderboardPage')"><span class="ti">♛</span>Лидеры</button><button class="tab" data-page="profilePage" onclick="showPage('profilePage')"><span class="ti">◉</span>Профиль</button></div></nav>
+<div id="toast" class="toast"></div>
+<script>
+const $=id=>document.getElementById(id);
+const symbols=['🍒','💎','⭐','🍋','7️⃣','🔔'];
+const diceFaces=['⚀','⚁','⚂','⚃','⚄','⚅'];
+const defaultState={balance:1000,name:'',games:0,won:0,bonuses:0,lastBonus:'',slotBet:50,rouletteBet:50,diceBet:50,rouletteColor:'pink',diceGuess:7,history:[]};
+let state={...defaultState};
+try{const saved=JSON.parse(localStorage.getItem('neonClubSave')||'null');if(saved)state={...state,...saved}}catch(e){}
+const tg=window.Telegram?.WebApp;
+if(tg){tg.ready();tg.expand();try{tg.setHeaderColor('#0b0717');tg.setBackgroundColor('#0b0717')}catch(e){}}
+const tgUser=tg?.initDataUnsafe?.user;
+const defaultName=tgUser?.first_name||'Neon Player';
+if(!state.name)state.name=defaultName;
+function save(){localStorage.setItem('neonClubSave',JSON.stringify(state));render()}
+function fmt(n){return Math.floor(n).toLocaleString('ru-RU')}
+function toast(s){$('toast').textContent=s;$('toast').style.display='block';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>$('toast').style.display='none',2300)}
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));$(id).classList.add('active');document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page===id));if(['slotsPage','roulettePage','dicePage'].includes(id))document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));window.scrollTo({top:0,behavior:'smooth'});render()}
+function openGame(game){showPage(game+'Page')}
+function render(){
+$('balance').textContent=fmt(state.balance);$('topAvatar').textContent=(state.name||'N').slice(0,1).toUpperCase();$('profileAvatar').textContent=(state.name||'N').slice(0,1).toUpperCase();$('profileName').textContent=state.name||'Neon Player';$('profileHandle').textContent=tgUser?'@'+(tgUser.username||'telegram_user'):'@local_player';$('nameInput').value=state.name||'';
+$('slotBet').textContent=state.slotBet;$('rouletteBet').textContent=state.rouletteBet;$('diceBet').textContent=state.diceBet;
+$('statGames').textContent=state.games;$('statWon').textContent=fmt(state.won);$('statBonuses').textContent=state.bonuses;
+const today=new Date().toISOString().slice(0,10), claimed=state.lastBonus===today;
+$('claimBtn').disabled=claimed;$('claimBtn').textContent=claimed?'Забрано':' +100';$('dailyText').textContent=claimed?'Ты уже забрал бонус сегодня':'Забери 100 монет прямо сейчас';
+const leaders=[{name:state.name||'Ты',score:state.won,me:true},{name:'NeonFox',score:2450},{name:'LunaByte',score:1890},{name:'PixelAce',score:1420},{name:'StarWave',score:980}].sort((a,b)=>b.score-a.score);
+function leaderHtml(arr){return arr.map((p,i)=>`<div class="leader"><div class="rank">#${i+1}</div><div class="avatar-sm">${p.me?'✦':['🦊','🌙','⚡','🌊'][Math.max(0,i-1)]||'✦'}</div><div class="grow"><b>${escapeHtml(p.name)}${p.me?' (ты)':''}</b><div class="muted">${p.me?'Твой рекорд':'NEON CLUB player'}</div></div><div class="score">${fmt(p.score)}</div></div>`).join('')}
+$('topLeaders').innerHTML=leaderHtml(leaders.slice(0,3));$('allLeaders').innerHTML=leaderHtml(leaders);
+$('diceChoices').innerHTML=Array.from({length:11},(_,i)=>i+2).map(n=>`<button class="choice ${state.diceGuess===n?'selected':''}" onclick="state.diceGuess=${n};render()">${n}</button>`).join('');
+document.querySelectorAll('[data-color]').forEach(b=>b.classList.toggle('selected',b.dataset.color===state.rouletteColor));
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function claimDaily(){const today=new Date().toISOString().slice(0,10);if(state.lastBonus===today)return toast('Бонус уже получен сегодня');state.balance+=100;state.bonuses++;state.lastBonus=today;save();toast('+100 виртуальных монет!')}
+function changeBet(n){state.slotBet=Math.max(10,Math.min(500,state.slotBet+n));render()}
+function changeRouletteBet(n){state.rouletteBet=Math.max(10,Math.min(500,state.rouletteBet+n));render()}
+function changeDiceBet(n){state.diceBet=Math.max(10,Math.min(500,state.diceBet+n));render()}
+function finishGame(stake,delta,label){state.balance=Math.max(0,state.balance+delta);state.games++;if(delta>0)state.won+=delta;state.history.unshift({date:Date.now(),label,delta});state.history=state.history.slice(0,30);save()}
+function enough(stake){if(state.balance<stake){toast('Недостаточно монет. Забери ежедневный бонус!');return false}return true}
+function playSlots(){let b=state.slotBet;if(!enough(b))return;state.balance-=b;let a=Array.from({length:3},()=>symbols[Math.floor(Math.random()*symbols.length)]);['r1','r2','r3'].forEach((id,i)=>$(id).textContent=a[i]);let prize=0;if(a.every(x=>x===a[0]))prize=b*(a[0]==='7️⃣'?10:5);else if(a[0]===a[1]||a[1]===a[2]||a[0]===a[2])prize=b*2;state.balance+=prize;state.games++;if(prize>b)state.won+=prize-b;state.history.unshift({date:Date.now(),label:'Слоты',delta:prize-b});state.history=state.history.slice(0,30);save();$('slotResult').textContent=prize?'Выигрыш: +'+fmt(prize)+' монет!':'Не повезло в этот раз — попробуй снова';toast(prize?'Комбинация! +'+fmt(prize):'Ставка списана: '+b)}
+function selectColor(c){state.rouletteColor=c;render()}
+function playRoulette(){let b=state.rouletteBet;if(!enough(b))return;let colors=['pink','cyan','dark'];let c=colors[Math.floor(Math.random()*3)];$('wheel').style.transform=`rotate(${720+Math.random()*360}deg)`;state.balance-=b;let prize=c===state.rouletteColor?b*3:0;state.balance+=prize;state.games++;if(prize>b)state.won+=prize-b;state.history.unshift({date:Date.now(),label:'Рулетка',delta:prize-b});state.history=state.history.slice(0,30);save();$('rouletteResult').textContent='Выпал '+({pink:'розовый 💗',cyan:'голубой 🩵',dark:'тёмный 🖤'}[c])+(prize?' — выигрыш +'+fmt(prize):' — в этот раз мимо');toast(prize?'Угадал! +'+fmt(prize):'Не угадал — попробуй ещё')}
+function playDice(){let b=state.diceBet;if(!enough(b))return;let d1=1+Math.floor(Math.random()*6),d2=1+Math.floor(Math.random()*6),sum=d1+d2;$('die1').textContent=diceFaces[d1-1];$('die2').textContent=diceFaces[d2-1];state.balance-=b;let prize=sum===state.diceGuess?b*5:0;state.balance+=prize;state.games++;if(prize>b)state.won+=prize-b;state.history.unshift({date:Date.now(),label:'Кости',delta:prize-b});state.history=state.history.slice(0,30);save();$('diceResult').textContent=`Выпало ${d1} + ${d2} = ${sum}. `+(prize?'Точный прогноз! +'+fmt(prize):'Не совпало — попробуй ещё');toast(prize?'Джекпот! +'+fmt(prize):'Выпало '+sum)}
+function saveName(){let n=$('nameInput').value.trim().slice(0,24);if(!n)return toast('Введи имя');state.name=n;save();toast('Имя сохранено')}
+function resetProgress(){if(!confirm('Точно сбросить баланс и весь прогресс на этом устройстве?'))return;state={...defaultState,name:defaultName};save();toast('Прогресс сброшен')}
+render();
+</script>
+</body>
+</html>
